@@ -1,5 +1,7 @@
 #include "Game.h"
-#include "vld.h"
+#ifdef DEBUG
+	#include "vld.h"
+#endif
 
 Game* game = nullptr;
 
