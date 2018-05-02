@@ -83,11 +83,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDL2-2.0.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDL2-2.0.8\include;$(SolutionDir)MemoryLeakDetector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)MemoryLeakDetector\lib\Win32;$(SolutionDir)SDL2-2.0.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_image.lib;vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
@@ -97,7 +97,8 @@ copy $(SolutionDir)SDL2-2.0.8\lib\x86\libpng16-16.dll $(OutDir)
 copy $(SolutionDir)SDL2-2.0.8\lib\x86\libtiff-5.dll $(OutDir)
 copy $(SolutionDir)SDL2-2.0.8\lib\x86\libwebp-7.dll $(OutDir)
 copy $(SolutionDir)SDL2-2.0.8\lib\x86\SDL2_image.dll $(OutDir)
-copy $(SolutionDir)SDL2-2.0.8\lib\x86\zlib1.dll $(OutDir)</Command>
+copy $(SolutionDir)SDL2-2.0.8\lib\x86\zlib1.dll $(OutDir)
+xcopy "$(SolutionDir)MemoryLeakDetector\bin\Win32" "$(OutDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -106,11 +107,11 @@ copy $(SolutionDir)SDL2-2.0.8\lib\x86\zlib1.dll $(OutDir)</Command>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDL2-2.0.8\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MemoryLeakDetector\include;$(SolutionDir)SDL2-2.0.8\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SDL2-2.0.8\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2main.lib;SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)MemoryLeakDetector\lib\Win64;$(SolutionDir)SDL2-2.0.8\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2main.lib;SDL2test.lib;vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
@@ -120,7 +121,8 @@ copy $(SolutionDir)SDL2-2.0.8\lib\x64\libpng16-16.dll $(OutDir)
 copy $(SolutionDir)SDL2-2.0.8\lib\x64\libtiff-5.dll $(OutDir)
 copy $(SolutionDir)SDL2-2.0.8\lib\x64\libwebp-7.dll $(OutDir)
 copy $(SolutionDir)SDL2-2.0.8\lib\x64\SDL2_image.dll $(OutDir)
-copy $(SolutionDir)SDL2-2.0.8\lib\x64\zlib1.dll $(OutDir)</Command>
+copy $(SolutionDir)SDL2-2.0.8\lib\x64\zlib1.dll $(OutDir)
+xcopy "$(SolutionDir)MemoryLeakDetector\bin\Win64" "$(OutDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

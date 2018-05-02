@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "vld.h"
 
 Game* game = nullptr;
 
@@ -31,5 +32,6 @@ int main(int argc, char*argv[])
 	}
 
 	game->Clean();
+	delete(game);
 	return 0;
 }
